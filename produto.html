@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes | GameBarato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" style="color: white; text-decoration: none;"><i class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </header>
+
+    <main class="container" id="detailPage">
+        <div class="detail-container">
+            <div class="img-placeholder" style="height: 400px; font-size: 5rem;">
+                <i class="fas fa-box-open"></i>
+            </div>
+            
+            <div class="product-info-full">
+                <h1 id="detNome">Nome do Produto</h1>
+                <p class="price" id="detPreco" style="font-size: 2rem;">R$ 0,00</p>
+                <p id="detDesc" style="color: var(--gray); line-height: 1.6;">Descrição...</p>
+                
+                <div class="info-section">
+                    <div class="topic"><h4>✅ Ponto Forte</h4><p id="detForte"></p></div>
+                    <div class="topic"><h4>⚠️ Ponto Fraco</h4><p id="detFraco"></p></div>
+                    <div class="topic"><h4>🎯 Para quem é</h4><p id="detQuem"></p></div>
+                    <div class="topic"><h4>💡 Vale a pena?</h4><p id="detVale"></p></div>
+                </div>
+
+                <button class="btn-shop" style="width: 100%; padding: 20px; font-size: 1.2rem; margin-top: 20px;">
+                    Ver na Shop
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Lógica simples para carregar dados do produto selecionado
+        const data = JSON.parse(localStorage.getItem('selectedProduct'));
+        if(data) {
+            document.getElementById('detNome').innerText = data.nome;
+            document.getElementById('detPreco').innerText = data.preco;
+            document.getElementById('detDesc').innerText = data.desc;
+            document.getElementById('detForte').innerText = data.forte;
+            document.getElementById('detFraco').innerText = data.fraco;
+            document.getElementById('detQuem').innerText = data.quem;
+            document.getElementById('detVale').innerText = data.vale;
+        }
+    </script>
+</body>
+</html>
